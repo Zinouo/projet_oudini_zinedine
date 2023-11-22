@@ -10,7 +10,7 @@ describe('ProductListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ProductListComponent]
     });
-    fixture = TestBed.createComponent(ProductListComponent);
+    fixture = TestBed.createComponent(ProductComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

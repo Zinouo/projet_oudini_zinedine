@@ -1,6 +1,12 @@
-// src/app/components/product-list/product-list.component.ts
+// src/app/components/product-list/product-.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
+import { Product } from '../../shared/models/Product';
+import { Store } from '@ngxs/store';
+import { addCart } from '../../shared/actions/cartAction';
+import { cartState } from '../../shared/states/cartState';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +16,8 @@ import { ProductService } from '../../services/product.service';
 export class ProductListComponent implements OnInit {
   products: any[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private store: Store) {}
+  
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data: any[]) => {
@@ -32,4 +39,19 @@ filterProducts(): void {
     );
   });
 }
+
+addCart(product: any) {
+  const ProductToAdd = new Product(
+    product.id, 
+    product.name, 
+    product.description, 
+    product.price, 
+    product.category, 
+    1 // Default quantity set to 1
+  );
+
+  this.store.dispatch(new addCart(ProductToAdd));
+}
+
+
 }
