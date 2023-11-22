@@ -21,11 +21,6 @@ import { Product } from '../models/Product';
 
 export class cartState {
   @Selector()
-  static getNbProducts(state: cartStateModel) {
-    return state.Products??[].length;
-  }
-
-  @Selector()
   static getListProducts(state: cartStateModel) {
     return state.Products;
   }
