@@ -1,0 +1,41 @@
+.card {
+  max-width: 400px;
+  margin: 0 auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card img {
+  max-height: 200px; 
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  margin: 20px 0;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.carousel-item {
+  height: 300px; 
+  margin-bottom: 30px;
+}
+
+.carousel-item img {
+  object-fit: cover; 
+  height: 100%;
+}

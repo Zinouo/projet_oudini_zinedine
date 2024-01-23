@@ -1,0 +1,49 @@
+<div class="container mt-4">
+  <!-- Top Section -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchTerm" (ngModelChange)="search()">
+    </div>
+    <div class="col-md-4 d-flex align-items-center">
+      <h2>Catalogue produits</h2>
+    </div>
+    <div class="col-md-4 text-end">
+      <button class="btn btn-secondary" routerLink="/cart">View Cart ({{ getTotalItemCount() }})</button>
+    </div>
+  </div>
+
+<!-- Carousel Section -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://img.buzzfeed.com/buzzfeed-static/static/2019-05/28/17/asset/buzzfeed-prod-web-04/sub-buzz-3426-1559077949-1.png" class="d-block w-100" alt="Dragons">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lorem</h5>
+        <p>Lorem ipsum </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div *ngIf="produits$ | async as produits" class="row">
+    <div *ngFor="let p of produits" class="col-md-4 mb-4">
+      <div class="card">
+        <img [src]="p.image" class="card-img-top" alt="{{ p.titre }} Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.titre }}</h5>
+          <p class="card-text">{{ p.description }}</p>
+          <p class="card-text">Price: {{ p.prix }} €</p>
+          <p class="card-text">Category: {{ p.categorie }}</p>
+
+          <button class="btn btn-primary" (click)="addToCart(p)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

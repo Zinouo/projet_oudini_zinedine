@@ -17,14 +17,14 @@ export class AppComponent {
   prenom: string = '';
   cnx: boolean = false;
   produits$: Observable<Array<Produit>>;
+  searchTerm: string = '';
+
   constructor(private apiService: ApiService) {
-    this.produits$ = this.apiService.getCalague();
+    this.produits$ = this.apiService.getCatalogue();
   }
-  connexion() {
-    this.apiService.loginClient(this.login, this.password).subscribe((c) => {
-      this.nom = c.nom;
-      this.prenom = c.prenom;
-      this.cnx = true;
-    });
+
+
+  search() {
+    this.produits$ = this.apiService.getCatalogue(this.searchTerm);
   }
 }

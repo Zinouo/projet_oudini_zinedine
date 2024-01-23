@@ -1,0 +1,68 @@
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .img-fluid {
+    max-width: 100%; 
+    height: auto;
+    max-height: 150px; 
+    object-fit: cover; 
+  }
+
+  .card .col-md-4 {
+    padding: 10px; 
+  }
+  
+  .card .col-md-8 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .card-body {
+    display: flex;
+    justify-content: space-between; /* Aligns content and button on opposite ends */
+  }
+  
+  .align-self-start {
+    align-self: flex-start; /* Aligns button to the top, if needed */
+  }
+  
+  /* Ensure text content does not overlap with the button on smaller screens */
+  @media (max-width: 768px) {
+    .card-body {
+      flex-direction: column;
+      align-items: start;
+    }
+  
+    .align-self-start {
+      align-self: stretch;
+      margin-top: 10px; /* Add spacing above the button */
+    }
+  }
+  
+  
+  .card-title {
+    font-size: 1.25rem; 
+  }
+  
+  .card-text {
+    margin-bottom: 10px;
+  }
+  
+  .btn-danger {
+    margin-top: 10px;
+  }
+  
+  .row {
+    margin-top: 20px;
+  }
+  
+  .btn-success {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  .alert-success {
+    font-size: 1.25rem;
+  }
+  
